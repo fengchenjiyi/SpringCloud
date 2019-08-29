@@ -35,12 +35,12 @@
         microservicecloud_config_client_3355客户端测试微服务：http://client-config.com:8201/config
 
 # Git上传下载命令：
-1、注意github上公钥配置  https://blog.csdn.net/yushuangping/article/details/84240863
-2、cd 到对应目录
-3、git status   查看文件状态，红色代表有更新
-4、pwd  当前目录
-5、git add .  将更新的文件添加进仓库
-6、git commit -m "init file"   提交更新文件，并添加注释
-7、git push origin master      将提交的内容推送到 master 分支
-8、git clone git@github.com:fengchenjiyi/microservicecloud-config.git   克隆仓库
+1. 注意github上公钥配置  https://blog.csdn.net/yushuangping/article/details/84240863
+2. cd 到对应目录
+3. git status   查看文件状态，红色代表有更新
+4. pwd  当前目录
+5. git add .  将更新的文件添加进仓库
+6. git commit -m "init file"   提交更新文件，并添加注释
+7. git push origin master      将提交的内容推送到 master 分支
+8. git clone git@github.com:fengchenjiyi/microservicecloud-config.git   克隆仓库
 
