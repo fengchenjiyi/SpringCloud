@@ -1,0 +1,13 @@
+server: 
+  port: 3344 
+  
+spring:
+  application:
+    name: microservicecloud-config  #GitHub上面的git仓库名字
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:fengchenjiyi/microservicecloud-config.git  #GitHub上面的git仓库地址
+ 
+
