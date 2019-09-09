@@ -1,2 +1,4 @@
 # SpringCloud
 microservicecloud基于教学视频微服务及微服务架构的练习demo
+
+springcloud_weather天气预报微服务学习demo
