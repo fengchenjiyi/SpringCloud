@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <artifactId>weather_collection_server_8201</artifactId>
-    <description>根据城市ID获取天气数据微服务8001</description>
+    <description>根据城市ID获取天气数据微服务8201</description>
 
     <dependencies>
 

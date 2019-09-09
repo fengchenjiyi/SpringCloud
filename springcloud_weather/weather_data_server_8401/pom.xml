@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>weather_data_server_8401</artifactId>
-    <description>天气数据微服务8201</description>
+    <description>天气数据微服务8401</description>
 
     <dependencies>
 

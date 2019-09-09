@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>weather_city_server_8001</artifactId>
-    <description>城市数据微服务8601</description>
+    <description>城市数据微服务8001</description>
 
     <dependencies>
 
