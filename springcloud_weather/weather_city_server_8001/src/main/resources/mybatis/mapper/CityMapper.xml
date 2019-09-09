@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weather.springcloud.city.dao.CityMapper" >
+    <resultMap id="BaseResultMap" type="com.weather.springcloud.api.model.entities.city.City">
+        <id column="city_id" property="cityId"  />
+        <result column="city_name" property="cityName"  />
+        <result column="city_code" property="cityCode"  />
+        <result column="province" property="province"  />
+        <result column="weather_data" property="weatherData"  />
+    </resultMap>
+
+    <select id="selectCityList" resultMap="BaseResultMap">
+        SELECT city_id,city_name,city_code,province FROM city
+    </select>
+
+
+</mapper>

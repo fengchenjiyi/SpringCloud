@@ -1,0 +1,57 @@
+server:
+  port: 8601
+
+spring:
+  application:
+    name: weather-report-server # 服务唯一名字
+  http:
+    encoding:              # 编码格式
+      charset: UTF-8
+      force: true
+      enabled: true
+  thymeleaf:
+    cache: false     # 关闭缓存，开启静态文件热部署功能
+  zipkin:           # Sleuth服务链路追踪zipkin参数
+    base-url: http://localhost:9411/    # zipkin服务器地址
+  sleuth:
+    sampler:
+      probability: 1     # 将100％的请求跟踪发送到 zipkin-controller 进行分析。 可配置 0.1-1
+
+
+eureka:
+  client: # 客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7201.com:7201/eureka #客户端注册进eureka服务集群列表内
+      #defaultZone: http://eureka7201.com:7201/eureka/,http://eureka7202.com:7202/eureka/,http://eureka7205.com:7205/eureka/  # 集群
+  instance:
+    instance-id: weather-report-server-${server.port}   #自定义服务名称信息
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000    # feign客户端连接超时时长
+        readTimeout: 5000       # feign客户端读取超时时长
+  hystrix:
+    enabled: true               # 开启feign客户端熔断机制
+
+# 配置 Hystrix Dashboard
+management:
+  endpoints:
+    web:
+      exposure:
+#  配置actuator 暴露的接入点，* 代表所有，也可以指定：refresh,health,info,hystrix.stream，2.0以后接入点路径增加了/actuator
+        include: '*'
+
+# 微服务基本描述信息
+info:
+  app.name: weather-report-server-${server.port}-provider
+  company.name: https://blog.csdn.net/yy290879584
+  # 调试用
+#  build.artifactId: ${project.artifactId}
+#  build.version: ${project.version}
+ # 打包用
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

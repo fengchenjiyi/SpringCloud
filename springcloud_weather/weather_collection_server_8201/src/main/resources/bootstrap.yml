@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: weather_collection_server # 需要从github上读取的资源名称，注意没有yml后缀名
+      profile: dev     # profile配置是什么就取什么配置dev or test
+      label: master    # 对应仓库分支
+      uri: http://localhost:7001  #SpringCloudConfig获取的服务地址
+

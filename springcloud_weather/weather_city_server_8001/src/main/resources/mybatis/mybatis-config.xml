@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 全局配置文件，需在application.yml中进行指定才能生效 -->
+<configuration>
+	<settings>
+		<!-- 驼峰命名规则 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 使用列别名替换列名  默认：true -->
+		<setting name="useColumnLabel" value="true"/>
+	</settings>
+	
+	<!-- 配置别名 -->
+	<typeAliases>
+		<package name="com.youlan.model"/>
+	</typeAliases>
+
+	<plugins>
+		<!-- com.github.pagehelper为PageHelper类所在包名 -->
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化
+			<property name="reasonable" value="true"/>
+			<property name="helperDialect" value="mysql"/>
+			<property name="supportMethodsArguments" value="true"/>
+			<property name="params" value="count=countSql"/>-->
+		</plugin>
+	</plugins>
+</configuration>
+

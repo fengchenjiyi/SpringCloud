@@ -1,0 +1,25 @@
+server: 
+  port: 7001
+  
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:fengchenjiyi/microservicecloud-config.git #GitHub上面的git仓库地址
+          search-paths: weather-config   #文件目录
+
+
+info:
+  app.name: config-server-${server.port}-provider
+  company.name: https://blog.csdn.net/yy290879584
+  # 调试用
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+ # 打包用
+#  build.artifactId: $project.artifactId$
+#  build.version: $project.version$
+ 
+

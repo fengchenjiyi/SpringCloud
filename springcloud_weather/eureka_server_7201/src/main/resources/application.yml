@@ -1,0 +1,23 @@
+server:
+  port: 7201
+
+eureka:
+  instance:
+    hostname: eureka7201.com #eureka服务端的实例名称，可以通过host文件配置域名，单机可以用localhost
+  client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/       #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）。
+      #defaultZone: http://eureka7202.com:7202/eureka/,http://eureka7205.com:7205/eureka/  # 集群配置
+
+info:
+  app.name: eureka-server-${server.port}-provider
+  company.name: https://blog.csdn.net/yy290879584
+  # 调试用
+#  build.artifactId: ${project.artifactId}
+#  build.version: ${project.version}
+ # 打包用
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+

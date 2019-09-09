@@ -1,0 +1,16 @@
+server:
+  port: 9201
+spring:
+  application:
+    name: hystrix-dashboard-server
+
+
+info:
+  app.name: hystrix-dashboard-server-${server.port}-provider
+  company.name: https://blog.csdn.net/yy290879584
+  # 调试用
+#  build.artifactId: ${project.artifactId}
+#  build.version: ${project.version}
+ # 打包用
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
