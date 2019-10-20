@@ -1,9 +1,7 @@
 package com.weather.springcloud.collection.job;
 
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.weather.springcloud.api.model.beans.ResponseMsgBody;
 import com.weather.springcloud.api.model.entities.city.City;
 import com.weather.springcloud.api.service.CityClient;
@@ -16,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

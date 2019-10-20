@@ -16,7 +16,7 @@ import java.io.InputStream;
 /**
  * @Auther: F~cjy
  * @Date: 2019/9/4 00:08
- * weather_report_server_8401 微服务的断路器处理，主要识别微服务是否正常
+ * weather_report_server_8601 微服务的断路器处理，主要识别微服务是否正常
  */
 @Component
 public class MyFallbackProvider implements FallbackProvider {

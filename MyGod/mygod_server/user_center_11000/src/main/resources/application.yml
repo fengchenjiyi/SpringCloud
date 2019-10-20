@@ -1,0 +1,98 @@
+server:
+  port: 11000
+spring:
+  application:
+    name: user-center #服务唯一名字
+  http:
+    encoding:              #浏览器编码格式
+      charset: UTF-8
+      force: true
+      enabled: true
+  zipkin:           # Sleuth服务链路追踪zipkin参数
+    base-url: http://182.61.144.28:9822/    # zipkin服务器地址
+  sleuth:
+    sampler:
+      probability: 1     # 将100％的请求跟踪发送到 zipkin-controller 进行分析。 可配置 0.1-1
+  datasource:
+    username: root
+    password: mysql
+    url: jdbc:mysql://localhost:3306/user_center?characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    driver‐class‐name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+#配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  redis:
+    host: 182.61.144.28
+    password: mygodredis
+    port: 9679
+
+mybatis-plus:
+  # 指定全局配置文件位置，采用了参数配置，这里不必开启
+  # config-location: classpath:mybatis/mybatis-config.xml
+  # 指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  # 配置别名
+  type-aliases-package: com.yaoln.usercenter.model
+  # 驼峰命名规则
+  configuration:
+    map-underscore-to-camel-case: true
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://182.61.144.28:10500/eureka #客户端注册进eureka服务集群列表内
+      #defaultZone: http://eureka7201.com:7201/eureka/,http://eureka7202.com:7202/eureka/,http://eureka7205.com:7205/eureka/  # 集群
+  instance:
+    instance-id: user-center-${server.port}   #自定义服务名称信息
+    prefer-ip-address: true    #访问路径可以显示IP地址
+    # 租期更新时间间隔（默认30秒）
+#    lease-renewal-interval-in-seconds: 10000
+    # 租期到期时间（默认90秒）
+#    lease-expiration-duration-in-seconds: 30000
+     # 需要增加下面配置，告诉注册中心访问路径变化
+#    status-page-url-path: /actuator/info
+#    health-check-url-path: /actuator/health
+#    home-page-url-path: /
+
+# 配置 Hystrix Dashboard
+#management:
+#  controller:
+#    port: 8601
+#  endpoints:
+#    web:
+#      base-path: /actuator   # Actuator 2.x 以后endpoints 全部在/actuator下，通过这里修改
+#      exposure:
+#        include: '*'
+management:
+  endpoints:
+    web:
+      exposure:
+#  配置actuator 暴露的接入点，* 代表所有，也可以指定：refresh,health,info,hystrix.stream，2.0以后接入点路径增加了/actuator
+        include: '*'
+
+info:
+  app.name: user-center-${server.port}-provider
+  company.name: https://www.yaoln.com
+  # 调试用
+#  build.artifactId: ${project.artifactId}
+#  build.version: ${project.version}
+ # 打包用
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+
+

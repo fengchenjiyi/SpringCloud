@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: microservicecloud-config  #GitHub上面的git仓库名字
+    name: microservicecloud-config
   cloud:
     config:
       server:

@@ -1,0 +1,11 @@
+百度云服务器：106.13.217.149    !yaoln@mygod888%server#
+                       182.61.144.28      !yaoln@mygod888%data#
+
+mysql数据库密码：mygodisgood     9606
+redis密码：mygodredis  9679
+
+本机：
+Eureka注册中心：http://182.61.144.28:10500/
+zipkin-server：http://182.61.144.28:9822
+HystrixDashboard：http://localhost:10800/hystrix
+HystrixDashboard微服务端口监控页面：http://localhost:10200/actuator/hystrix.stream

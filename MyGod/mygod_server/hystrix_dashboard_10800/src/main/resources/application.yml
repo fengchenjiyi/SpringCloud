@@ -1,0 +1,16 @@
+server:
+  port: 10800
+spring:
+  application:
+    name: hystrix-dashboard
+
+
+info:
+  app.name: hystrix-dashboard-${server.port}-provider
+  company.name: https://www.yaoln.com
+  # 调试用
+#  build.artifactId: ${project.artifactId}
+#  build.version: ${project.version}
+ # 打包用
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

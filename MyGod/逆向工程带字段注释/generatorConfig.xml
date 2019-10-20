@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="context1" targetRuntime="MyBatis3">
+		<!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+		<property name="javaFileEncoding" value="UTF-8" />
+		<!-- mysql配置 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/user_center" userId="root"
+			password="mysql">
+			<!-- 针对mysql数据库 -->
+			<property name="useInformationSchema" value="true"></property>
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- dto class -->
+		<javaModelGenerator targetPackage="com.yaoln.usercenter.model"
+			targetProject="F:\FuXi\SpringCloud\MyGod\code">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+			<!-- 是否对model添加 构造函数 
+			<property name="constructorBased" value="true"/>-->
+		</javaModelGenerator>
+		<!-- mybatis xml file -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="F:\FuXi\SpringCloud\MyGod\code">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- mapper class -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.yaoln.usercenter.dao" targetProject="F:\FuXi\SpringCloud\MyGod\code">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!--不生成帮助类（Exmaples） -->
+		<!-- enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="false" selectByExampleQueryId="false" -->
+		<!--已生成的表 <table schema="demo" tableName="USER" domainObjectName="User"></table> -->
+		<!-- 指定数据库表 -->
+		<table schema="" tableName="tab_sys_user" domainObjectName="SysUser"></table>
+		<table schema="" tableName="tab_app_type" domainObjectName="AppType"></table>
+		<table schema="" tableName="tab_one_user" domainObjectName="OneUser"></table>
+		<table schema="" tableName="tab_one_user_info" domainObjectName="OneUserInfo"></table>
+		
+	</context>
+</generatorConfiguration>
+
